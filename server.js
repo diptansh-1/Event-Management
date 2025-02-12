@@ -17,7 +17,7 @@ app.prepare().then(() => {
   const io = new Server(server, {
     path: '/api/socket.io', // Match client connection path
     cors: {
-      origin: 'http://localhost:3000', // Explicitly allow frontend origin
+      origin: process.env.NEXT_PUBLIC_BACKEND_URL, // Explicitly allow frontend origin
       methods: ['GET', 'POST']
     }
   });
@@ -34,6 +34,6 @@ app.prepare().then(() => {
 
   server.listen(3000, (err) => {
     if (err) throw err;
-    console.log('> Ready on http://localhost:3000');
+    // console.log('> Ready on http://localhost:3000');
   });
 });
