@@ -8,7 +8,7 @@ export const SocketProvider = ({ children }) => {
   const [socket, setSocket] = useState(null);
 
   useEffect(() => {
-    const newSocket = io('http://localhost:3000', {
+    const newSocket = io(process.env.NEXT_PUBLIC_BACKEND_URL, {
       path: '/api/socket.io', // Match server path
       autoConnect: true,
       withCredentials: true
